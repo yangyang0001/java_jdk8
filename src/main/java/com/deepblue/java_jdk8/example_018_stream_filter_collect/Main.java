@@ -4,6 +4,7 @@ import org.bouncycastle.util.Strings;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,7 +39,29 @@ public class Main {
         String result2 = collect2.stream().map(item -> String.valueOf(item)).collect(Collectors.joining(" ")).toString();
         System.out.println("result2 = " + result2);
 
-        //
+        System.out.println("------------------------------------------------------------------------------------------");
+
+        // 将 list3 中的 单词去重 集合!
+        List<String> list3 = Arrays.asList("hello world", "hello jdk8", "welcome to java jdk8", "hello java jdk8");
+        String[] split1 = list3.parallelStream().collect(Collectors.joining(" ")).split(" ");
+        Set<String> collect3 = Stream.of(split1).collect(Collectors.toSet());
+        collect3.forEach(item -> System.out.print(item + " "));
+
+        System.out.println("\n------------------------------------------------------------------------------------------");
+
+        // 找到 list4 中的 第一个长度为4 的单词!
+        List<String> list4 = Arrays.asList("zhangsan", "lisi", "xiao", "xiaowa", "xiaohe", "xiaoming");
+        list4.stream().filter(item -> item.length() == 4).findFirst().ifPresent(System.out::println);
+
+        System.out.println("--------------------------------------------------------------------------------------------");
+
+        List<String> list5 = Arrays.asList("Hi", "Hello", "你好");
+        List<String> list6 = Arrays.asList("zhangsan", "lisi", "wangwu");
+        list5.stream().forEach(item1 -> {
+            list6.stream().forEach(item2 -> {
+                System.out.println(item1 + " " + item2);
+            });
+        });
 
 
     }

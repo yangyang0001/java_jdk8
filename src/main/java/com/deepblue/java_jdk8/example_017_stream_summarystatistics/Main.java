@@ -1,6 +1,7 @@
 package com.deepblue.java_jdk8.example_017_stream_summarystatistics;
 
 import java.util.IntSummaryStatistics;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -14,7 +15,7 @@ public class Main {
         stream.forEach(System.out::println);
 
         Stream<Integer> stream1 = Stream.iterate(1, item -> item * 2).limit(5);
-        IntSummaryStatistics statistics = stream1.mapToInt(item -> item).summaryStatistics();
+        IntSummaryStatistics statistics = stream1.collect(Collectors.summarizingInt(item -> item));
         long count = statistics.getCount();
         int max = statistics.getMax();
         int min = statistics.getMin();
