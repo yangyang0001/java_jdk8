@@ -28,7 +28,7 @@ public class Main {
         System.out.println(predicate.test(param));
 
         Predicate<Student> predicate1 = item -> item.getAge() > 10;
-        boolean flag = predicate1.test(new Student(2L, "wangfang", "222", 0, 25, 2L));
+        boolean flag = predicate1.test(new Student(2L, "wangfang", "222", 0, 25, 2L, 55));
         System.out.println("flag = " + flag);
 
     }

@@ -94,11 +94,11 @@ public class Main {
         System.out.println("------------------------------------------------------------------------------------");
 
 
-        Student student1 = new Student(1L, "zhangsan", "111", 1, 18, 1L);
-        Student student2 = new Student(2L, "wangfang", "222", 0, 25, 2L);
-        Student student3 = new Student(3L, "wangwu", "333", 1, 20, 1L);
-        Student student4 = new Student(4L, "xiaoying", "444", 0, 30, 2L);
-        Student student5 = new Student(5L, "maosan", "555", 1, 25, 2L);
+        Student student1 = new Student(1L, "zhangsan", "111", 1, 20, 1L, 90);
+        Student student2 = new Student(2L, "wangfang", "222", 0, 25, 2L, 60);
+        Student student3 = new Student(3L, "wangwu", "333", 1, 20, 1L, 88);
+        Student student4 = new Student(4L, "xiaoying", "444", 0, 35, 2L, 88);
+        Student student5 = new Student(5L, "maosan", "555", 1, 25, 2L, 55);
 
         /**
          * 10.将 学生 按照 classId 进行分组, 然后计算每个分组的 平均年龄!

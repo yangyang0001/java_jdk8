@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 public class Main {
 
     public static void main(String[] args) {
-        Supplier<Student> supplier = () -> new Student(100L, "zhangsan", "111", 1, 22, 1L);
+        Supplier<Student> supplier = () -> new Student(100L, "zhangsan", "111", 1, 22, 1L, 88);
         System.out.println(supplier.get());
     }
 
