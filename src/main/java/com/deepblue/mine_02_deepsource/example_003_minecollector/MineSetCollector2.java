@@ -1,4 +1,4 @@
-package com.deepblue.mine_02_deepsource.example_003_mycollector;
+package com.deepblue.mine_02_deepsource.example_003_minecollector;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -10,7 +10,7 @@ import java.util.stream.Collector;
 /**
  * Created by Administrator on 2019/4/10.
  */
-public class MySetCollector2<T> implements Collector<T, Set<T>, Map<T, T>> {
+public class MineSetCollector2<T> implements Collector<T, Set<T>, Map<T, T>> {
 
     @Override
     public Supplier<Set<T>> supplier() {
@@ -75,7 +75,7 @@ public class MySetCollector2<T> implements Collector<T, Set<T>, Map<T, T>> {
         set.add("d");
         //可以执行多次,来验证Characteristics.CONCURRENT中的使用
         for(int i =0 ;i < 1 ;i++){
-            Map<String,String> map = set.parallelStream().collect(new MySetCollector2<String>());
+            Map<String,String> map = set.parallelStream().collect(new MineSetCollector2<String>());
             System.out.println(map);
             System.out.println("--------------------------------------------------------------------------------------");
         }

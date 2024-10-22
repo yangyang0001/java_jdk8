@@ -1,7 +1,7 @@
 package com.deepblue.mine_02_deepsource.example_005_stream_source;
 
 /**
- * Created by Administrator on 2019/4/10.
+ * 
  */
 public class AutoCloseableTest implements AutoCloseable {
 

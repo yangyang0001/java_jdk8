@@ -25,12 +25,30 @@ public class StreamSourceMap05 {
          *
          * 2.所有的中间操作都是返回了一个 StatelessOp,并不会执行
          *
-         *
          * 3.forEach()  的分析归纳: 所有的终止操作都有 实现了 TerminalOp
+         *
+         * 4.reduce 方法中给出的 模拟代码
+         *
+         * boolean foundAny = false;
+         * T result = null;
+         * for (T element : this stream) {
+         *     if (!foundAny) {
+         *         foundAny = true;
+         *         result = element;
+         *     } else {
+         *         result = accumulator.apply(result, element);
+         *     }
+         * }
+         * return foundAny ? Optional.of(result) : Optional.empty();
          *
          *
          *
          */
+
+
+
+
+
     }
 
 }

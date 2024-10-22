@@ -1,9 +1,9 @@
 package com.deepblue.mine_02_deepsource.example_006_stream_map;
 
 /**
- * 本例子证明了lambda表达式和内部类的实现从根本上就是不一样的,作用域不同!
+ * 本例子证明了 lambda表达式 和 内部类的实现从根本上就是不一样的,作用域不同!
  */
-public class LambdaTest {
+public class MineScope {
 
     Runnable r1 = () -> System.out.println("first ------:" + this);
 
@@ -16,7 +16,7 @@ public class LambdaTest {
 
     public static void main(String[] args){
 
-        LambdaTest test = new LambdaTest();
+        MineScope test = new MineScope();
 
         Thread thread1 = new Thread(test.r1);
         thread1.start();

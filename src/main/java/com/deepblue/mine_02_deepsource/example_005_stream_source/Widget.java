@@ -1,7 +1,7 @@
 package com.deepblue.mine_02_deepsource.example_005_stream_source;
 
 /**
- * 物件Class JavaBean
+ * 物件 Bean
  */
 public class Widget {
     //颜色

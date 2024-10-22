@@ -1,52 +1,29 @@
 package com.deepblue.mine_02_deepsource.example_004_collectors_groupingBy_partitioningBy;
 
+import lombok.*;
+
 /**
- * Created by Administrator on 2019/4/10.
+ *
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
 public class Student {
+
+    private Long id;
 
     private String name;
 
-    private int age;
+    private String pass;
 
-    private int score;
+    private Integer gender;
 
-    public Student(String name, int age, int score) {
-        this.name = name;
-        this.age = age;
-        this.score = score;
-    }
+    private Integer age;
 
-    public String getName() {
-        return name;
-    }
+    private Long classId;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private Integer score;
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", score=" + score +
-                '}';
-    }
 }

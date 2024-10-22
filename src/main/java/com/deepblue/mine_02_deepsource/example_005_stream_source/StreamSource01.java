@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 流源码的讲解的第一节课
- * 主要看JDK中的解释
+ * 主要看 JDK 中的解释
  */
 public class StreamSource01 {
 
@@ -45,7 +45,7 @@ public class StreamSource01 {
          *      b.流:关注的是集合中元素的计算
          *
          * 5.大多数的流必须满足以下 对流操作的 行为参数(for example调用map()方法接收的参数):
-         *      a.lambda表达式之间互补干扰
+         *      a.lambda表达式之间互不干扰
          *
          * 6.流的关闭操作，除非是IO,文件访问创建的流才需要关闭,集合创建的流不需要关闭,因为就是内存中数据的一种数据模式
          *

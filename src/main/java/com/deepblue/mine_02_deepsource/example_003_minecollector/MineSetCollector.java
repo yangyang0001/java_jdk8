@@ -1,4 +1,4 @@
-package com.deepblue.mine_02_deepsource.example_003_mycollector;
+package com.deepblue.mine_02_deepsource.example_003_minecollector;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -10,7 +10,7 @@ import java.util.stream.Collector;
 /**
  * Created by Administrator on 2019/4/10.
  */
-public class MySetCollector<T> implements Collector<T, Set<T>, Set<T>> {
+public class MineSetCollector<T> implements Collector<T, Set<T>, Set<T>> {
 
     @Override
     public Supplier<Set<T>> supplier() {
@@ -48,7 +48,7 @@ public class MySetCollector<T> implements Collector<T, Set<T>, Set<T>> {
 
     public static void main(String[] args){
         List<String> list = Arrays.asList("hello", "world", "welcome", "hello");
-        Set<String> set = list.stream().collect(new MySetCollector<>());
+        Set<String> set = list.stream().collect(new MineSetCollector<>());
         System.out.println(set);
     }
 }

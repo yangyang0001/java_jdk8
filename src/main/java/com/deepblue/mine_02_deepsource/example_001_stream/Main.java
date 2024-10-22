@@ -102,15 +102,30 @@ public class Main {
         System.out.println("------------------------------------------------------------------------------------");
 
         /**
+         * 8.根据 classId 分组
+         */
+        Map<Long, List<Student>> collect1 = students.stream().collect(Collectors.groupingBy(Student::getClassId));
+        collect1.forEach((classId, list) -> {
+            list.stream().forEach(item -> {
+                System.out.println("classId = " + classId + ", item = " + item);
+            });
+            System.out.println();
+        });
+
+        System.out.println("------------------------------------------------------------------------------------");
+
+        /**
          * 8.首先根据 classId 分组, 再根据 gender 分组
          */
-        Map<Long, Map<Integer, List<Student>>> collect1 = students.stream().collect(Collectors.groupingBy(Student::getClassId, Collectors.groupingBy(Student::getGender)));
-        collect1.forEach((classId, genders) -> {
+        Map<Long, Map<Integer, List<Student>>> collect2 = students.stream().collect(Collectors.groupingBy(Student::getClassId, Collectors.groupingBy(Student::getGender)));
+        collect2.forEach((classId, genders) -> {
             genders.forEach((gender, list) -> {
                 list.forEach(item -> {
                     System.out.println("classId = " + classId + ", gender = " + gender + ", item = " + item);
                 });
+                System.out.println();
             });
+            System.out.println("\n");
         });
 
         System.out.println("------------------------------------------------------------------------------------");
@@ -118,8 +133,8 @@ public class Main {
         /**
          * 9.根据成绩分区, 大于80 和 小于等于80 两个区
          */
-        Map<Boolean, List<Student>> collect2 = students.stream().collect(Collectors.partitioningBy(item -> item.getScore() > 80));
-        collect2.forEach((flag, list) -> {
+        Map<Boolean, List<Student>> collect3 = students.stream().collect(Collectors.partitioningBy(item -> item.getScore() > 80));
+        collect3.forEach((flag, list) -> {
             list.stream().forEach(item -> {
                 System.out.println("flag = " + flag + ", item = " + item);
             });
@@ -130,8 +145,8 @@ public class Main {
         /**
          * 10.分区后进行结果求和
          */
-        Map<Boolean, Long> collect3 = students.stream().collect(Collectors.groupingBy(item -> item.getScore() > 80, Collectors.summingLong(Student::getScore)));
-        collect3.forEach((flag, groupsum) -> {
+        Map<Boolean, Long> collect4 = students.stream().collect(Collectors.groupingBy(item -> item.getScore() > 80, Collectors.summingLong(Student::getScore)));
+        collect4.forEach((flag, groupsum) -> {
             System.out.println("flag = " + flag + ", groupsum = " + groupsum);
         });
 
@@ -145,8 +160,8 @@ public class Main {
          *      大于 90
          */
 
-        Map<Boolean, Map<Boolean, Integer>> collect4 = students.stream().collect(Collectors.partitioningBy(item -> item.getScore() > 80, Collectors.groupingBy(item -> item.getScore() > 90, Collectors.summingInt(Student::getScore))));
-        collect4.forEach((flag1, map) -> {
+        Map<Boolean, Map<Boolean, Integer>> collect5 = students.stream().collect(Collectors.partitioningBy(item -> item.getScore() > 80, Collectors.groupingBy(item -> item.getScore() > 90, Collectors.summingInt(Student::getScore))));
+        collect5.forEach((flag1, map) -> {
             map.forEach((flag2, item) -> {
                 System.out.println("flag1 = " + flag1 + ", flag2 = " + flag2 + ", item = " + item);
             });
@@ -157,9 +172,9 @@ public class Main {
         /**
          * 12.先根据 classId 进行分组, 然后 取每个组中成绩最低的 学生
          */
-        Map<Long, Optional<Student>> collect5 = students.stream()
+        Map<Long, Optional<Student>> collect6 = students.stream()
                 .collect(Collectors.groupingBy(Student::getClassId, Collectors.minBy(Comparator.comparingInt(Student::getScore))));
-        collect5.forEach((classId, optional2) -> {
+        collect6.forEach((classId, optional2) -> {
             System.out.println("classId = " + classId + ", student = " + optional2.get());
         });
 
@@ -168,11 +183,11 @@ public class Main {
         /**
          * 12.使用 collectingAndThen 先根据 classId 进行分组, 然后 取每个组中成绩最低的 学生
          */
-        Map<Long, Student> collect6 = students.stream().collect(Collectors.groupingBy(Student::getClassId,
-                Collectors.collectingAndThen(Collectors.minBy(Comparator.comparingInt(Student::getScore)), Optional<Student>::get)));
-        collect6.forEach((classId, student) -> {
-            System.out.println("classId = " + classId + ", student = " + student);
+        Map<Long, Student> collect7 = students.stream()
+                .collect(Collectors.groupingBy(Student::getClassId, Collectors.collectingAndThen(Collectors.minBy(Comparator.comparingInt(Student::getScore)), Optional<Student>::get)));
+        collect7.forEach((classId, item) -> {
+            System.out.println("classId = " + classId + ", item = " + item);
         });
-
+        
     }
 }
